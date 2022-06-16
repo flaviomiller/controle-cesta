@@ -50,12 +50,14 @@ include_once("../../src/conexoes/conexao.php");
         unset($_SESSION['msg']);
     }
 
+    $data = filter_input(INPUT_POST, 'date');
+
     ?>
     <main class="container">
         <div>
             <form action="" method="post">
                 <input style="margin-top: 10px;" id="date" name="date" type="date">
-                <input type="submit" name="seleciona_data" value="Select">
+                <input type="submit" name="seleciona_data" value=" Select ">
             </form>
         </div>
 
@@ -85,11 +87,10 @@ include_once("../../src/conexoes/conexao.php");
 
                 echo "<p style='margin-top: 10px;'>There are no records for $data</p>";
             } else {
-                echo "<p style='margin-top: 10px;'>Lincoln Amazing Grace SDA church - " . $data . "</p>";
+                echo "<p style='margin-top: 10px;'>Lincoln Amazing Grace SDA Church - " . $data . "<br>  <a href='imprimir_relatorio.php?dateprint=$data' target='_blank'>Print report</a></p>";
                 echo "<table class='table'>
                                     <thead>
                                         <tr>
-                                            <th>Lastname</th>
                                             <th>Name</th>
                                             <th>How many Adults?</th>
                                             <th>How many Children?</th>
@@ -101,21 +102,20 @@ include_once("../../src/conexoes/conexao.php");
                     $total_adultos += intval($rows_entrega['qtd_adultos']);
                     $total_criancas += intval($rows_entrega['qtd_criancas']);
                     echo "<tr>";
-                    echo "<td>" . $rows_entrega['snome'] . "</td>"
-                        . "<td>" . $rows_entrega['nome'] . "</td>"
+                    echo "<td>" . $rows_entrega['snome'] . ", " . $rows_entrega['nome'] . "</td>"
                         . "<td>" . $rows_entrega['qtd_adultos'] . "</td>"
                         . "<td>" . $rows_entrega['qtd_criancas'] . "</td>";
                     echo "</tr>";
                 }
                 echo "<tr>" .
-                    "<td>Total adults</td>" .
-                    "<td>Total children</td>" .
-                    "<td>Total families</td>" .
+                    "<th>Total families</th>" .
+                    "<th>Total adults</th>" .
+                    "<th>Total children</th>" .
                     "</tr>" .
                     "<tr>" .
+                    "<td>" . $conta_registro . "</td>" .
                     "<td>" . $total_adultos . "</td>" .
                     "<td>" . $total_criancas . "</td>" .
-                    "<td>" . $conta_registro . "</td>" .
                     "</tr>";
                 echo "</tbody>
                                     </table>";

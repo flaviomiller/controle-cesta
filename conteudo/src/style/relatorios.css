@@ -5,60 +5,11 @@
 }
 
 
-
-
-div .container {
-    padding: 60px;
-    page-break-after: always;
-
-}
-
-.main {
-    padding-top: 20px;
-}
-
-div {
-    color:rgb(47,85,127); 
-    font-family: arial,sans-serif;
-    width: 100%;
-    page-break-after: always;
-}
-
-.nav ul li {
-    display: inline-block;
-    padding-right: 10px;
-}
-
-.nav ul {
-    display: flex;
-}
-
-.nav a {
-    text-decoration: none;
-}
-
 table {
   width: 100%;
   text-align: left;
   font-family: arial,sans-serif;
-  font-size: 15px;
+  font-size: 13px;
   color:rgb(47,85,127); 
-  padding: 10px;
-}
-
-
-@media screen and (max-width: 700px) {
-    header .container{
-        display: flex;
-        flex-direction: column;
-
-    }
-
-}
-
-@media screen and (min-width: 1000px){
-    .descricao{
-        width: 60%;
-    }
-    
+  padding: 20px;
 }

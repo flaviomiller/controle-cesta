@@ -3,12 +3,12 @@
 session_start();
 include_once ("../../src/conexoes/conexao.php");
 
-//$data = filter_input(INPUT_POST, 'date');
-$data = "2022-06-13";
+$data = filter_input(INPUT_GET, 'dateprint');
+//$data = "2022-06-13";
                  
         
         $result_entrega = "SELECT
-        beneficiarios.beneficiario_id, beneficiarios.snome, beneficiarios.nome, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
+        beneficiarios.beneficiario_id, beneficiarios.snome, beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
         FROM beneficiarios 
         INNER JOIN 
         entrega ON beneficiarios.beneficiario_id = entrega.beneficiario_id 
@@ -25,37 +25,29 @@ $data = "2022-06-13";
 
 
 $html = '';
-$html .= '<DOCTYPE html>';
-$html .= '    <html>';
-$html .= '    <head>';
-$html .= '    <meta charset="utf-8">';
-$html .= '    <meta name="viewport" content="width=device-width, initial-scale=1">';
-$html .= '        <title>Food distribution manager</title>';
 $html .= '        <link rel="stylesheet" type="text/css" href="../../src/style/relatorios.css">';
-$html .= '    </head>';
-$html .= '    <body>';
-$html .= '    <div class"container">';
-$html .= '        <header style="padding-left: 30px; padding-right: 30px;">';
 $html .= '            <table class="table">';
 $html .= '                <thead>';
 $html .= '                    <tr>';
-$html .= '                        <th style="text-align: left;"><img src="../../src/img/log_iasd_azul.png" width="100" height="100"></th>';
-$html .= '                        <th style="text-align: right;"><h4>Food distribution report</h4></th>';
+$html .= '                        <th style="text-align: left;"><img src="../../src/img/log_iasd_azul.png" width="60" height="60"></th>';
+$html .= '                        <th</th>';
+$html .= '                        <th></th>';
+$html .= '                        <th></th>';
+$html .= '                        <th style="text-align: right; width: 150px;"><h3>Food distribution report</h3></th>';
 $html .= '                    </tr>';
 $html .= '                    <tr>';
-$html .= '                        <th style="text-align: left;"><h3>Lincoln Amazing Grace SDA church</h3></th>';
-$html .= '                        <th style="text-align: right;"><h5>06-22-2022</h5></th>';
+$html .= '                        <th style="text-align: left; width: 150px;"><h3>Lincoln Amazing Grace SDA church</h3></th>';
+$html .= '                        <th></th>';
+$html .= '                        <th></th>';
+$html .= '                        <th></th>';
+$html .= '                        <th style="text-align: right;"><h4>'. $data .'</h4></th>';
 $html .= '                    </tr>';
-$html .= '                </thead>';
-$html .= '            </table>';
-$html .= '        </header>';
-$html .= '        <main style="padding-left: 30px; padding-right: 30px;">';
-$html .= '             <table class="table">';
-$html .= '                <thead>';
 $html .= '                    <tr>';
-$html .= '                        <th style="text-align: left;">Name</th>';
-$html .= '                        <th style="text-align: left;">Adults</th>';
-$html .= '                        <th style="text-align: left;">Children</th>';
+$html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Name</th>';
+$html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Phone</th>';
+$html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Email</th>';
+$html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Adults</th>';
+$html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Children</th>';
 $html .= '                    </tr>';
 $html .= '                </thead>';
     while ($rows_entrega = mysqli_fetch_assoc($resultado_entregas)){
@@ -64,26 +56,20 @@ $html .= '                </thead>';
 $html .= '                 <tbody>';
 $html .= '                     <tr>';
 $html .= '                         <td>' . $rows_entrega['snome'] . ', ' . $rows_entrega['nome'] . "</td>";
+$html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['telefone'] . "</td>";
+$html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['email'] . "</td>";
 $html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['qtd_adultos'] . "</td>";
 $html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['qtd_criancas'] . "</td>";
 $html .= '                     </tr>';
     }
 $html .= '                     <tr>';
-$html .= '                         <th style="text-align: left; padding-top: 10px;">Total adults</th>';
-$html .= '                         <th style="text-align: left; padding-top: 10px;">Total children</th>';
-$html .= '                         <th style="text-align: left; padding-top: 10px;">Total families</th>';
-$html .= '                     </tr>';
-$html .= '                     <tr>';
-$html .= '                         <td>' . $total_adultos . "</td>";
-$html .= '                         <td>' . $total_criancas . "</td>";
-$html .= '                         <td>' . $conta_registro . "</td>";
+$html .= '                         <td style="text-align: left; padding-top: 10px"><b>Total families: ' . $conta_registro . "</b></td>";
+$html .= '                         <td style="text-align: left; padding-top: 10px"><b>Total adults: ' . $total_adultos . "</b></td>";
+$html .= '                         <td style="text-align: left; padding-top: 10px"><b>Total children: ' . $total_criancas . "</b></td>";
 $html .= '                     </tr>';
 $html .= '                 </tbody>';
 $html .= '             </table>';
-$html .= '         </main>';
-$html .= '       </div>';
-$html .= '      </body>';
-$html .= '    </html>';
+
 
 
 use Dompdf\Dompdf;
@@ -95,8 +81,8 @@ $dompdf->load_html($html);
 $dompdf->render();
      
 $output = $dompdf->output();
-file_put_contents("teste.pdf", $output);
+//file_put_contents($data."_report_donation.pdf", $output);
 
-$dompdf->stream("teste.pdf",array("Attachment"=> false));
+$dompdf->stream($data."_report_donation.pdf",array("Attachment"=> true));
 
 ?>
