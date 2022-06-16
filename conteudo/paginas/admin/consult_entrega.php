@@ -54,8 +54,7 @@ include_once("../../src/conexoes/conexao.php");
     <main class="container">
         <div>
             <form action="" method="post">
-                <label>Select date</label><br>
-                <input id="date" name="date" type="date">
+                <input style="margin-top: 10px;" id="date" name="date" type="date">
                 <input type="submit" name="seleciona_data" value="Select">
             </form>
         </div>
@@ -65,7 +64,7 @@ include_once("../../src/conexoes/conexao.php");
 
         if ($data == '') {
 
-            echo "<p>Select the date for generating report  </p>";
+            echo "<p style='margin-top: 10px;'>Select the date for generating report  </p>";
         } else {
 
             $result_entrega = "SELECT
@@ -84,9 +83,9 @@ include_once("../../src/conexoes/conexao.php");
 
             if ($conta_registro == 0) {
 
-                echo "<p>There are no records for $data</p>";
+                echo "<p style='margin-top: 10px;'>There are no records for $data</p>";
             } else {
-                echo "<p>Lincoln Amazing Grace SDA church - " . $data . "</p>";
+                echo "<p style='margin-top: 10px;'>Lincoln Amazing Grace SDA church - " . $data . "</p>";
                 echo "<table class='table'>
                                     <thead>
                                         <tr>
