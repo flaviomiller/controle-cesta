@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include_once ("../../src/conexoes/conexao.php");
+include_once("../../src/conexoes/conexao.php");
 
 $id = filter_input(INPUT_GET, 'beneficiario_id', FILTER_SANITIZE_NUMBER_INT);
 
@@ -10,54 +10,94 @@ $resultado_edit_user = mysqli_query($conn, $result_edit_user);
 $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
 
 ?>
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <h2><a href="../login/login.php">Home</a></h2>
-        <h3>Edit register receiver</h3>
-            <?php
 
-                if(isset($_SESSION['msg'])){
-                    echo $_SESSION['msg'];
-                    unset($_SESSION['msg']);
-                }
-            
-            ?>
-            <form method="post" action="proc_edit_usuario.php" enctype="multipart/form-data">
+<head>
+    <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit Record</title>
+</head>
 
-                <input type="hidden" id="id" name="id" value="<?php echo $row_edit_user['beneficiario_id'] ?>"></input><br><br>
-                <label>Name *</label>
-                <input type="text" required="required" id="nome" name="nome" value="<?php echo $row_edit_user['nome'] ?>"></input><br><br>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-light">
+            <div class="container-fluid">
+                <a class="nav-link" href="cad_presenca.php"><i class="fa-solid fa-clipboard-user"></i></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-align-justify"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php">Presence check</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/cad_usuario.php">Registration</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/consult_usuarios.php">Beneficiary’s report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../admin/consult_entrega.php">Donation Report</a>
+                            </li>
+                        </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="container" style="margin-top: 10px;">
+        <?php
 
-                <label>Lastname *</label>
-                <input type="text" required="required" id="snome" name="snome" value="<?php echo $row_edit_user['snome'] ?>"></input><br><br>
+        if (isset($_SESSION['msg'])) {
+            echo $_SESSION['msg'];
+            unset($_SESSION['msg']);
+        }
 
-                <label>Phone *</label>
-                <input type="text" required="required" id="telefone" name="telefone" value="<?php echo $row_edit_user['telefone'] ?>"></input><br><br>
+        ?>
+        <form class="row g-3" method="post" action="proc_edit_usuario.php" enctype="multipart/form-data">
 
-                <label>City </label>
-                <input type="text" id="cidade" name="cidade" value="<?php echo $row_edit_user['cidade'] ?>"></input><br><br>
+            <div class="col-md-6">
+                <input type="hidden" class="form-control" name="id" value="<?php echo $row_edit_user['beneficiario_id'] ?>" placeholder="id" aria-label="id">
+                <input type="text" class="form-control" name="nome" value="<?php echo $row_edit_user['nome'] ?>" placeholder="First name" aria-label="First name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="snome" value="<?php echo $row_edit_user['snome'] ?>" placeholder="Last name" aria-label="Last name">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="telefone" value="<?php echo $row_edit_user['telefone'] ?>" placeholder="Phone" aria-label="Phone">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="cidade" value="<?php echo $row_edit_user['cidade'] ?>" placeholder="City" aria-label="City">
+            </div>
+            <div class="col-md-6">
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $row_edit_user['email'] ?>" placeholder="Email" aria-label="Email">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="qtd_adultos" value="<?php echo $row_edit_user['qtd_adultos'] ?>" placeholder="How many adults " aria-label="How many adults ">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="qtd_criancas" value="<?php echo $row_edit_user['qtd_criancas'] ?>" placeholder="How many children" aria-label="How many children">
+            </div>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="numero_cartao" value="<?php echo $row_edit_user['numero_cartao'] ?>" placeholder="Card Number" aria-label="Card Number">
+            </div>
 
-                <label>E-Mail </label>
-                <input type="email" id="email" name="email" value="<?php echo $row_edit_user['email'] ?>"></input><br><br>
+            <div class="col-12">
+                <button type="submit" name="AltUsuario" value="Save" class="btn btn-primary">Edit</button>
+            </div>
 
-                <label>How many adults *</label>
-                <input type="text" required="required" id="qtd-adultos" name="qtd_adultos" value="<?php echo $row_edit_user['qtd_adultos'] ?>"></input><br><br>
+        </form>
 
-                <label>How many children *</label>
-                <input type="text" required="required" id="qtd-criancas" name="qtd_criancas" value="<?php echo $row_edit_user['qtd_criancas'] ?>"></input><br><br>
+        <script src="https://kit.fontawesome.com/cd2d859a93.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="../../src/js/scripts.js"></script>
+        <script src="../../src/bootstrap/js/bootstrap.min.js"></script>
+    </main>
+</body>
 
-                <label>Card Number *</label>
-                <input type="text" required="required" id="numero-cartao" name="numero_cartao" value="<?php echo $row_edit_user['numero_cartao'] ?>"></input><br><br>
-
-                <input type="submit" name="AltUsuario" value="Save">
-
-            </form>
-    </body>
 </html>
-
