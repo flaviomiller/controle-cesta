@@ -1,2 +1,2 @@
 # controle-cesta
- sistema para controle dos usuario e da distribuição de cestas basicas
+ sistema de controle de usuario e distribuição de cestas basicas
