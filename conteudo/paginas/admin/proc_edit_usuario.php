@@ -14,13 +14,11 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
         //recebe dados do formulário e atribui a variaveis
         $id = filter_input(INPUT_POST, 'id', FILTER_UNSAFE_RAW);
         $nome = filter_input(INPUT_POST, 'nome', FILTER_UNSAFE_RAW);
-        $snome = filter_input(INPUT_POST, 'snome', FILTER_UNSAFE_RAW);
         $telefone = filter_input(INPUT_POST, 'telefone', FILTER_SANITIZE_NUMBER_INT);
         $cidade = filter_input(INPUT_POST, 'cidade', FILTER_UNSAFE_RAW);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $qtdAdultos = filter_input(INPUT_POST, 'qtd_adultos', FILTER_SANITIZE_NUMBER_INT);
         $qtdCriancas = filter_input(INPUT_POST, 'qtd_criancas', FILTER_SANITIZE_NUMBER_INT);
-        $numeroCartao = filter_input(INPUT_POST, 'numero_cartao', FILTER_SANITIZE_NUMBER_INT);
 
 /*        
         echo "Nome: $nome <br>";
@@ -33,7 +31,7 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
         echo "Número de Cartão: $numeroCartao <br>";
 */                
 
-        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `snome` = '$snome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `numero_cartao` = '$numeroCartao', `modificado` = NOW() WHERE `beneficiarios`.`beneficiario_id` = '$id'";
+        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `modificado` = NOW() WHERE `beneficiarios`.`beneficiario_id` = '$id'";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);

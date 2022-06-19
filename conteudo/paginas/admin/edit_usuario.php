@@ -15,7 +15,7 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
-    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,20 +32,22 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php">Presence check</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/cad_usuario.php">Registration</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_usuarios.php">Beneficiary’s report</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_entrega.php">Donation Report</a>
-                            </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../admin/consult_usuarios.php"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../admin/consult_entrega.php"><i class="fa-solid fa-box"></i> Donation Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../admin/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -66,9 +68,6 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
                 <input type="text" class="form-control" name="nome" value="<?php echo $row_edit_user['nome'] ?>" placeholder="First name" aria-label="First name">
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="snome" value="<?php echo $row_edit_user['snome'] ?>" placeholder="Last name" aria-label="Last name">
-            </div>
-            <div class="col-md-6">
                 <input type="text" class="form-control" name="telefone" value="<?php echo $row_edit_user['telefone'] ?>" placeholder="Phone" aria-label="Phone">
             </div>
             <div class="col-md-6">
@@ -82,9 +81,6 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
             </div>
             <div class="col-md-6">
                 <input type="text" class="form-control" name="qtd_criancas" value="<?php echo $row_edit_user['qtd_criancas'] ?>" placeholder="How many children" aria-label="How many children">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="numero_cartao" value="<?php echo $row_edit_user['numero_cartao'] ?>" placeholder="Card Number" aria-label="Card Number">
             </div>
 
             <div class="col-12">

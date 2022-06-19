@@ -28,7 +28,7 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login_adm.php"><i class="fa-solid fa-lock"></i> Administrative</a>
+                                <a class="nav-link active" aria-current="page" href="login_adm.php"><i class="fa-solid fa-house-lock"></i> Administrative</a>
                             </li>
                         </ul>
                 </div>
@@ -39,8 +39,9 @@ include_once("../../src/conexoes/conexao.php");
         <?php
 
         if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
+            echo "<div class='alert alert-success' role='alert'>" . $_SESSION['msg'] . "</div>";
             unset($_SESSION['msg']);
+            header("Refresh: 1");
         }
 
         ?>

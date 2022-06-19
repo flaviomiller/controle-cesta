@@ -9,7 +9,7 @@ include_once("../../src/conexoes/conexao.php");
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
-    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +17,6 @@ include_once("../../src/conexoes/conexao.php");
 </head>
 
 <body>
-
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
@@ -29,16 +28,19 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php">Presence check</a>
+                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/cad_usuario.php">Registration</a>
+                                <a class="nav-link" href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_usuarios.php">Beneficiary’s report</a>
+                                <a class="nav-link" href="../admin/consult_usuarios.php"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_entrega.php">Donation Report</a>
+                                <a class="nav-link" href="../admin/consult_entrega.php"><i class="fa-solid fa-box"></i> Donation Report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../login/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                             </li>
                         </ul>
                 </div>
@@ -46,10 +48,12 @@ include_once("../../src/conexoes/conexao.php");
         </nav>
     </header>
     <main class="container">
+        <div>
+            <p style="padding-top: 10px; color: rgb(47,85,127); font-weight: bold; font-size: 18px;"><?php echo $_SESSION['instituicao'] ?></p>
+        </div>
         <form action="" method="post">
-            <label>Search by Name</label>
-            <input type="text" name="nome">
-            <input type="submit" name="SendPesqUser" value="Search">
+            <input type="text" name="nome" placeholder="Search by Name">
+            <input type="submit" name="SendPesqUser" value=" Search ">
         </form>
         <?php
 
@@ -63,22 +67,20 @@ include_once("../../src/conexoes/conexao.php");
         $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
         if ($nome == '') {
-            echo "Enter the name in the search field";
+            echo "<p style='margin-top: 10px;'><i class='fa-solid fa-square-caret-up'></i> &nbsp;Enter the name in the search field</p>";
         } else if ($resultado_usuarios->num_rows == 0) {
-            echo "No record found with that name";
+            echo "<p style='margin-top: 10px;'><i class='fa-solid fa-square-xmark'></i> &nbsp;No record found with that name</p>";
         } else {
             echo "<table class='table table-striped'>" .
                 "<thead>
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
-                                    <th>Lastname</th>
                                     <th>Phone</th>
                                     <th>City</th>
                                     <th>E-mail</th>
                                     <th>Adult</th>
                                     <th>Children</th>
-                                    <th>Card Number</th>
                                     <th>...</th>
                                 </tr>
                             </thead>
@@ -90,13 +92,11 @@ include_once("../../src/conexoes/conexao.php");
                 echo "<tr>";
                 echo "<td>" . $rows_usuario['beneficiario_id'] . "</td>"
                     . "<td>" . $rows_usuario['nome'] . "</td>"
-                    . "<td>" . $rows_usuario['snome'] . "</td>"
                     . "<td>" . $rows_usuario['telefone'] . "</td>"
                     . "<td>" . $rows_usuario['cidade'] . "</td>"
                     . "<td>" . $rows_usuario['email'] . "</td>"
                     . "<td>" . $rows_usuario['qtd_adultos'] . "</td>"
                     . "<td>" . $rows_usuario['qtd_criancas'] . "</td>"
-                    . "<td>" . $rows_usuario['numero_cartao'] . "</td>"
                     . "<td><a href='edit_usuario.php?beneficiario_id=" . $rows_usuario['beneficiario_id'] . "'/><i class='fa-solid fa-file-pen'></i></td>";
                 echo "</tr>";
             }

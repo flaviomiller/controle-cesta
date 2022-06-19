@@ -41,12 +41,12 @@ $valida_post = filter_input(INPUT_POST, 'CadInstituicao', FILTER_UNSAFE_RAW);
         if(mysqli_insert_id($conn)){
             
             $_SESSION['msg'] = "<p style = 'color:green;'> Registro inserido com sucesso!!</p>";
-            header("Location: cad_presenca.php");
+            header("Location: menu_adm.php");
 
         } else {
 
             $_SESSION['msg'] = "<p style = 'color:red;'> Erro ao salvar dados</p>";
-            header("Location: cad_usuario.php");
+            header("Location: cad_instituicao.php");
 
         }
 
@@ -55,7 +55,7 @@ $valida_post = filter_input(INPUT_POST, 'CadInstituicao', FILTER_UNSAFE_RAW);
     } else {
 
         $_SESSION['msg'] = "<p style = 'color:red;'> <b>Não</b> acesse diretamente por Links, preencha os dados do formulário e <b>Clique</b> no botão cadastrar!</p>";
-        header("Location: cad_presenca.php");
+        header("Location: cad_instituicao.php");
 
     }
 

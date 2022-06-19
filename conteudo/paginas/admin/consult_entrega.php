@@ -5,11 +5,11 @@ include_once("../../src/conexoes/conexao.php");
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
-    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,16 +27,19 @@ include_once("../../src/conexoes/conexao.php");
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php">Presence check</a>
+                            <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/cad_usuario.php">Registration</a>
+                            <a class="nav-link" href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/consult_usuarios.php">Beneficiary’s report</a>
+                            <a class="nav-link" href="../admin/consult_usuarios.php"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../admin/consult_entrega.php">Donation Report</a>
+                            <a class="nav-link" href="../admin/consult_entrega.php"><i class="fa-solid fa-box"></i> Donation Report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../login/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -55,8 +58,11 @@ include_once("../../src/conexoes/conexao.php");
     ?>
     <main class="container">
         <div>
+            <p style="padding-top: 10px; color: rgb(47,85,127); font-weight: bold; font-size: 18px;"><?php echo $_SESSION['instituicao'] ?></p>
+        </div>
+        <div>
             <form action="" method="post">
-                <input style="margin-top: 10px;" id="date" name="date" type="date">
+                <input id="date" name="date" type="date">
                 <input type="submit" name="seleciona_data" value=" Select ">
             </form>
         </div>
@@ -66,11 +72,11 @@ include_once("../../src/conexoes/conexao.php");
 
         if ($data == '') {
 
-            echo "<p style='margin-top: 10px;'>Select the date for generating report  </p>";
+            echo "<p style='margin-top: 10px;'><i class='fa-solid fa-square-caret-up'></i> &nbsp;Select the date for generating report  </p>";
         } else {
 
             $result_entrega = "SELECT
-                        beneficiarios.beneficiario_id, beneficiarios.snome, beneficiarios.nome, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
+                        beneficiarios.beneficiario_id, beneficiarios.nome, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
                         FROM beneficiarios 
                         INNER JOIN 
                         entrega ON beneficiarios.beneficiario_id = entrega.beneficiario_id 
@@ -85,9 +91,9 @@ include_once("../../src/conexoes/conexao.php");
 
             if ($conta_registro == 0) {
 
-                echo "<p style='margin-top: 10px;'>There are no records for $data</p>";
+                echo "<p style='margin-top: 10px;'><i class='fa-solid fa-square-xmark'></i> &nbsp;There are no records for: $data</p>";
             } else {
-                echo "<p style='margin-top: 10px;'>Lincoln Amazing Grace SDA Church - " . $data . "<br>  <a href='imprimir_relatorio.php?dateprint=$data' target='_blank'>Print report</a></p>";
+                echo "<p style='margin-top: 10px;'><i class='fa-solid fa-print'></i>  <a href='imprimir_relatorio.php?dateprint=$data' target='_blank'> Print report</a> | " . $data . "</p>";
                 echo "<table class='table table-striped'>
                                     <thead>
                                         <tr>
@@ -102,7 +108,7 @@ include_once("../../src/conexoes/conexao.php");
                     $total_adultos += intval($rows_entrega['qtd_adultos']);
                     $total_criancas += intval($rows_entrega['qtd_criancas']);
                     echo "<tr>";
-                    echo "<td>" . $rows_entrega['snome'] . ", " . $rows_entrega['nome'] . "</td>"
+                    echo "<td>"  . $rows_entrega['nome'] . "</td>"
                         . "<td>" . $rows_entrega['qtd_adultos'] . "</td>"
                         . "<td>" . $rows_entrega['qtd_criancas'] . "</td>";
                     echo "</tr>";

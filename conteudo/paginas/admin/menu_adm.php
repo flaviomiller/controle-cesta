@@ -9,7 +9,7 @@ include_once("../../src/conexoes/conexao.php");
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
-    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,10 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../login/login.php"><i class="fa-solid fa-house-circle-check"></i> Select church</a>
+                                <a class="nav-link active" aria-current="page" href="menu_adm.php"><i class="fa-solid fa-house-lock"></i> Administrative</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../login/login.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                             </li>
                         </ul>
                 </div>

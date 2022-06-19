@@ -28,7 +28,7 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login.php"><i class="fa-solid fa-house-circle-check"></i> Select church</a>
+                                <a class="nav-link active" aria-current="page" href="login.php"><i class="fa-solid fa-square-caret-left"></i> Back</a>
                             </li>
                         </ul>
                 </div>

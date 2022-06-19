@@ -8,7 +8,7 @@ $data = filter_input(INPUT_GET, 'dateprint');
                  
         
         $result_entrega = "SELECT
-        beneficiarios.beneficiario_id, beneficiarios.snome, beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
+        beneficiarios.beneficiario_id, beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
         FROM beneficiarios 
         INNER JOIN 
         entrega ON beneficiarios.beneficiario_id = entrega.beneficiario_id 
@@ -36,7 +36,7 @@ $html .= '                        <th></th>';
 $html .= '                        <th></th>';
 $html .= '                    </tr>';
 $html .= '                    <tr>';
-$html .= '                        <th><h3>Lincoln Amazing Grace SDA church</h3></th>';
+$html .= '                        <th><h3>' . $_SESSION['instituicao']. '</h3></th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';
@@ -55,7 +55,7 @@ $html .= '                </thead>';
     $total_criancas += intval($rows_entrega['qtd_criancas']);
 $html .= '                 <tbody>';
 $html .= '                     <tr>';
-$html .= '                         <td>' . $rows_entrega['snome'] . ', ' . $rows_entrega['nome'] . "</td>";
+$html .= '                         <td>' . $rows_entrega['nome'] . "</td>";
 $html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['telefone'] . "</td>";
 $html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['email'] . "</td>";
 $html .= '                         <td style="padding-left: 5px;">' . $rows_entrega['qtd_adultos'] . "</td>";

@@ -9,7 +9,7 @@ include_once("../../src/conexoes/conexao.php");
 
 <head>
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
-    <link rel="stylesheet" type="text/css" href="../../src/style/responsive.css">
+    <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,23 +28,29 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php">Presence check</a>
+                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/cad_usuario.php">Registration</a>
+                                <a class="nav-link" href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_usuarios.php">Beneficiary’s report</a>
+                                <a class="nav-link" href="../admin/consult_usuarios.php"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_entrega.php">Donation Report</a>
+                                <a class="nav-link" href="../admin/consult_entrega.php"><i class="fa-solid fa-box"></i> Donation Report</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../login/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                             </li>
                         </ul>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="container" style="margin-top: 10px;">
+    <main class="container">
+        <div>
+            <p style="padding-top: 10px; color: rgb(47,85,127); font-weight: bold; font-size: 18px;"><?php echo $_SESSION['instituicao'] ?></p>
+        </div>
         <?php
 
         if (isset($_SESSION['msg'])) {
@@ -54,7 +60,6 @@ include_once("../../src/conexoes/conexao.php");
 
         ?>
         <form class="row g-3" method="post" action="proc_cad_usuario.php" enctype="multipart/form-data">
-
             <div class="col-md-6">
                 <input type="text" class="form-control" name="nome" placeholder="First name" aria-label="First name">
             </div>
@@ -67,7 +72,7 @@ include_once("../../src/conexoes/conexao.php");
             <div class="col-md-6">
                 <input type="text" class="form-control" name="cidade" placeholder="City" aria-label="City">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" aria-label="Email">
             </div>
             <div class="col-md-6">
@@ -75,9 +80,6 @@ include_once("../../src/conexoes/conexao.php");
             </div>
             <div class="col-md-6">
                 <input type="text" class="form-control" name="qtd_criancas" placeholder="How many children" aria-label="How many children">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="numero_cartao" placeholder="Card Number" aria-label="Card Number">
             </div>
 
             <div class="col-12">

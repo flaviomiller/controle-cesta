@@ -19,7 +19,7 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuario', FILTER_UNSAFE_RAW);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $qtdAdultos = filter_input(INPUT_POST, 'qtd_adultos', FILTER_SANITIZE_NUMBER_INT);
         $qtdCriancas = filter_input(INPUT_POST, 'qtd_criancas', FILTER_SANITIZE_NUMBER_INT);
-        $numeroCartao = filter_input(INPUT_POST, 'numero_cartao', FILTER_SANITIZE_NUMBER_INT);
+        $nomeCompleto = $snome .", " . $nome;
 
 /*        
         echo "Nome: $nome <br>";
@@ -33,7 +33,7 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuario', FILTER_UNSAFE_RAW);
 */        
 
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-        $var_query = "INSERT INTO beneficiarios (nome, snome, telefone, cidade, email, qtd_adultos, qtd_criancas, numero_cartao, criado) VALUES ('$nome', '$snome', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', '$numeroCartao', NOW())";
+        $var_query = "INSERT INTO beneficiarios (nome, telefone, cidade, email, qtd_adultos, qtd_criancas, criado) VALUES ('$nomeCompleto', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', NOW())";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
