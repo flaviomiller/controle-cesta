@@ -3,12 +3,6 @@
 session_start();
 include_once("../../src/conexoes/conexao.php");
 
-$id = filter_input(INPUT_GET, 'beneficiario_id', FILTER_SANITIZE_NUMBER_INT);
-
-$result_edit_user = "SELECT * FROM beneficiarios WHERE beneficiario_id = '$id'";
-$resultado_edit_user = mysqli_query($conn, $result_edit_user);
-$row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +13,7 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Edit Record</title>
+    <title>Registration church</title>
 </head>
 
 <body>
@@ -59,36 +53,19 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
         }
 
         ?>
-        <form class="row g-3" method="post" action="proc_edit_usuario.php" enctype="multipart/form-data">
+        <form class="row g-3" method="post" action="proc_cad_instituicao.php" enctype="multipart/form-data">
 
-            <div class="col-md-6">
-                <input type="hidden" class="form-control" name="id" value="<?php echo $row_edit_user['beneficiario_id'] ?>" placeholder="id" aria-label="id">
-                <input type="text" class="form-control" name="nome" value="<?php echo $row_edit_user['nome'] ?>" placeholder="First name" aria-label="First name">
+            <div class="col-md-12">
+                <input type="text" class="form-control" name="instituicao" placeholder="Church name" aria-label="First name">
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="snome" value="<?php echo $row_edit_user['snome'] ?>" placeholder="Last name" aria-label="Last name">
+                <input type="password" class="form-control" name="senha" placeholder="Password" aria-label="Password">
             </div>
             <div class="col-md-6">
-                <input type="text" class="form-control" name="telefone" value="<?php echo $row_edit_user['telefone'] ?>" placeholder="Phone" aria-label="Phone">
+                <input type="password" class="form-control" name="confere_senha" placeholder="Repeat the password" aria-label="Password">
             </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="cidade" value="<?php echo $row_edit_user['cidade'] ?>" placeholder="City" aria-label="City">
-            </div>
-            <div class="col-md-6">
-                <input type="email" class="form-control" id="email" name="email" value="<?php echo $row_edit_user['email'] ?>" placeholder="Email" aria-label="Email">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="qtd_adultos" value="<?php echo $row_edit_user['qtd_adultos'] ?>" placeholder="How many adults " aria-label="How many adults ">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="qtd_criancas" value="<?php echo $row_edit_user['qtd_criancas'] ?>" placeholder="How many children" aria-label="How many children">
-            </div>
-            <div class="col-md-6">
-                <input type="text" class="form-control" name="numero_cartao" value="<?php echo $row_edit_user['numero_cartao'] ?>" placeholder="Card Number" aria-label="Card Number">
-            </div>
-
             <div class="col-12">
-                <button type="submit" name="AltUsuario" value="Save" class="btn btn-primary">Edit</button>
+                <button type="submit" name="CadInstituicao" value="Register" class="btn btn-primary">Register</button>
             </div>
 
         </form>

@@ -13,14 +13,14 @@ include_once("../../src/conexoes/conexao.php");
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Records</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="login.php"><img src="../../src/img/logo_azul.jpg" style="border-radius:20%;" width="30px" height="30px"></a>
+                <a class="nav-link" href="../login/login.php"><img src="../../src/img/logo_azul.jpg" style="border-radius:20%;" width="30px" height="30px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
@@ -28,7 +28,7 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login_adm.php"><i class="fa-solid fa-lock"></i> Administrative</a>
+                                <a class="nav-link active" aria-current="page" href="../login/login.php"><i class="fa-solid fa-house-circle-check"></i> Select church</a>
                             </li>
                         </ul>
                 </div>
@@ -44,30 +44,10 @@ include_once("../../src/conexoes/conexao.php");
         }
 
         ?>
-        <form class="row g-3" method="post" action="valida_login_instituicao.php" enctype="multipart/form-data">
-
-            <div class="col-md-12">
-                <label for="inputState" class="form-label">Select the church</label>
-                <select name="instituicao" class="form-select">
-                    <option selected>Choose...</option>
-                    <?php
-                    $results_instituicao = "SELECT * FROM instituicao ORDER BY nome_instituicao";
-                    $resultado_instituicao = mysqli_query($conn, $results_instituicao);
-                    while ($row_instituicao = mysqli_fetch_assoc($resultado_instituicao)) { ?>
-                        <option value="<?php echo $row_instituicao['instituicao_id']; ?>"><?php echo $row_instituicao['nome_instituicao']; ?>
-                        </option><?php
-                                }
-                    ?>
-                </select>
-            </div>
-            <div class="col-md-12">
-                <input type="password" class="form-control" name="senha" placeholder="Password" aria-label="Password">
-            </div>
-            <div class="col-12">
-                <button type="submit" name="btnLogin" value="access" class="btn btn-primary">Access</button>
-            </div>
-
-        </form>
+        <div class="list-group">
+            <a href="cad_instituicao.php" class="list-group-item list-group-item-action">Register new church</a>
+            <a href="cad_usuario_adm.php" class="list-group-item list-group-item-action">Register new admin user</a>
+        </div>
 
         <script src="https://kit.fontawesome.com/cd2d859a93.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

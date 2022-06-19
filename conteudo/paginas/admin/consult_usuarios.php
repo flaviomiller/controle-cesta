@@ -55,7 +55,7 @@ include_once("../../src/conexoes/conexao.php");
 
         ?>
 
-        <table class="table">
+        <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>

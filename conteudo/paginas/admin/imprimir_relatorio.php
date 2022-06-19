@@ -29,18 +29,18 @@ $html .= '        <link rel="stylesheet" type="text/css" href="../../src/style/r
 $html .= '            <table class="table">';
 $html .= '                <thead>';
 $html .= '                    <tr>';
-$html .= '                        <th style="text-align: left;"><img src="../../src/img/log_iasd_azul.png" width="60" height="60"></th>';
+$html .= '                        <th><img src="../../src/img/log_iasd_azul.png" width="70" height="70"></th>';
 $html .= '                        <th</th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';
-$html .= '                        <th style="text-align: right; width: 150px;"><h3>Food distribution report</h3></th>';
+$html .= '                        <th></th>';
 $html .= '                    </tr>';
 $html .= '                    <tr>';
-$html .= '                        <th style="text-align: left; width: 150px;"><h3>Lincoln Amazing Grace SDA church</h3></th>';
+$html .= '                        <th><h3>Lincoln Amazing Grace SDA church</h3></th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';
-$html .= '                        <th style="text-align: right;"><h4>'. $data .'</h4></th>';
+$html .= '                        <th><h4>'. $data .'</h4></th>';
 $html .= '                    </tr>';
 $html .= '                    <tr>';
 $html .= '                        <th style="text-align: left; padding-top: 10px; border-top: 1px solid rgb(47,85,127);">Name</th>';
@@ -83,6 +83,6 @@ $dompdf->render();
 $output = $dompdf->output();
 //file_put_contents($data."_report_donation.pdf", $output);
 
-$dompdf->stream($data."_report_donation.pdf",array("Attachment"=> true));
+$dompdf->stream($data."_report_donation.pdf",array("Attachment"=> false));
 
 ?>
