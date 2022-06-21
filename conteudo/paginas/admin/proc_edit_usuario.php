@@ -47,7 +47,7 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
 
     } else {
 
-        $_SESSION['msg'] = "<p style = 'color:red;'> <b>Não</b> acesse diretamente por Links, preencha os dados do formulário e <b>Clique</b> no botão cadastrar!</p>";
+        $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
         header("Location: consult_usuarios.php");
 
     }

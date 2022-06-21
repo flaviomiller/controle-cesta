@@ -36,12 +36,12 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuarioAdm', FILTER_UNSAFE_RAW);
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if(mysqli_insert_id($conn)){
             
-            $_SESSION['msg'] = "<p style = 'color:green;'> Registro inserido com sucesso!!</p>";
+            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully inserted!</p>";
             header("Location: menu_adm.php");
 
         } else {
 
-            $_SESSION['msg'] = "<p style = 'color:red;'> Erro ao salvar dados</p>";
+            $_SESSION['msg'] = "<p style = 'color:red;'> Error saving data</p>";
             header("Location: menu_adm.php");
 
         }
@@ -50,7 +50,7 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuarioAdm', FILTER_UNSAFE_RAW);
 
     } else {
 
-        $_SESSION['msg'] = "<p style = 'color:red;'> <b>Não</b> acesse diretamente por Links, preencha os dados do formulário e <b>Clique</b> no botão cadastrar!</p>";
+        $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
         header("Location: menu_adm.php");
 
     }

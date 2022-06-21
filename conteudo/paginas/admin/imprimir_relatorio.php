@@ -4,15 +4,16 @@ session_start();
 include_once ("../../src/conexoes/conexao.php");
 
 $data = filter_input(INPUT_GET, 'dateprint');
+$instituicao = $_SESSION['instituicao_id'];
 //$data = "2022-06-13";
                  
         
         $result_entrega = "SELECT
-        beneficiarios.beneficiario_id, beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
+        beneficiarios.beneficiario_id, beneficiarios.instituicao_id,  beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
         FROM beneficiarios 
         INNER JOIN 
         entrega ON beneficiarios.beneficiario_id = entrega.beneficiario_id 
-        WHERE entrega.criado LIKE '%$data%'";
+        WHERE entrega.instituicao_id = $instituicao AND entrega.criado LIKE '%$data%'" ;
         $resultado_entregas = mysqli_query($conn, $result_entrega);
         $conta_registro = mysqli_num_rows($resultado_entregas);
         $total_adultos = 0;

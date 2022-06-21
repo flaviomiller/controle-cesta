@@ -54,6 +54,7 @@ include_once("../../src/conexoes/conexao.php");
     }
 
     $data = filter_input(INPUT_POST, 'date');
+    $instituicao = $_SESSION['instituicao_id'];
 
     ?>
     <main class="container">
@@ -76,11 +77,11 @@ include_once("../../src/conexoes/conexao.php");
         } else {
 
             $result_entrega = "SELECT
-                        beneficiarios.beneficiario_id, beneficiarios.nome, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
+                        beneficiarios.beneficiario_id, beneficiarios.instituicao_id, beneficiarios.nome, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
                         FROM beneficiarios 
                         INNER JOIN 
                         entrega ON beneficiarios.beneficiario_id = entrega.beneficiario_id 
-                        WHERE entrega.criado LIKE '%$data%'";
+                        WHERE entrega.instituicao_id = $instituicao AND entrega.criado LIKE '%$data%'";
 
             $resultado_entregas = mysqli_query($conn, $result_entrega);
 

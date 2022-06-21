@@ -4,8 +4,9 @@ session_start();
 include_once ("../../src/conexoes/conexao.php");
 
 $usuarios = filter_input(INPUT_POST, 'palavra', FILTER_SANITIZE_STRING);
+$instituicao = $_SESSION['instituicao_id'];
 
-    $result_user = "SELECT * FROM beneficiarios WHERE nome LIKE '%$usuarios%' LIMIT 30";
+    $result_user = "SELECT * FROM beneficiarios WHERE instituicao_id = $instituicao AND nome LIKE '%$usuarios%' LIMIT 50";
     $resultado_user = mysqli_query($conn, $result_user);
 
     if (($resultado_user) AND ($resultado_user->num_rows != 0)){

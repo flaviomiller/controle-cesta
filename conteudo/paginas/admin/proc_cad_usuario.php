@@ -8,6 +8,7 @@ O If verifica se há valores na variavel $valida_post, caso positivo ele tenta
 realizar o cadastro, e em caso de falha ele chama a função que retorna para a página de cadastro*/
 
 $valida_post = filter_input(INPUT_POST, 'CadUsuario', FILTER_UNSAFE_RAW);
+$instituicao = $_SESSION['instituicao_id'];
 
     if ($valida_post) {
 
@@ -33,7 +34,7 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuario', FILTER_UNSAFE_RAW);
 */        
 
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-        $var_query = "INSERT INTO beneficiarios (nome, telefone, cidade, email, qtd_adultos, qtd_criancas, criado) VALUES ('$nomeCompleto', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', NOW())";
+        $var_query = "INSERT INTO beneficiarios (instituicao_id, nome, telefone, cidade, email, qtd_adultos, qtd_criancas, criado) VALUES ('$instituicao', '$nomeCompleto', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', NOW())";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -42,9 +43,14 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuario', FILTER_UNSAFE_RAW);
         retorna a página de cadastro informando que o registro foi corretamente inserido;
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if(mysqli_insert_id($conn)){
+
+            $retornaId = mysqli_insert_id($conn);
             
+            header("Location: proc_cad_presenca.php?user_id=$retornaId");
+/*
             $_SESSION['msg'] = "<p style = 'color:green;'> Registro inserido com sucesso!!</p>";
             header("Location: cad_presenca.php");
+*/
 
         } else {
 

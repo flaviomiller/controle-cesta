@@ -8,14 +8,14 @@ O If verifica se há valores na variavel $valida_post, caso positivo ele tenta
 realizar o cadastro, e em caso de falha ele chama a função que retorna para a página de cadastro*/
 
 $valida_post = filter_input(INPUT_GET, 'user_id', FILTER_UNSAFE_RAW);
-
+$instituicao = $_SESSION['instituicao_id'];
 //echo "User ID: $valida_post <br>";
 
 
     if ($valida_post) {
 
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-       $var_query = "INSERT INTO entrega (beneficiario_id, criado) VALUES ('$valida_post', NOW())";
+       $var_query = "INSERT INTO entrega (beneficiario_id, instituicao_id, criado) VALUES ('$valida_post', $instituicao, NOW())";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -25,12 +25,12 @@ $valida_post = filter_input(INPUT_GET, 'user_id', FILTER_UNSAFE_RAW);
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if((mysqli_affected_rows($conn)) > 0) {
             
-            $_SESSION['msg'] = "<p style = 'color:green;'> Registro inserido com sucesso!!</p>";
+            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully inserted!</p>";
             header("Location: cad_presenca.php");
 
         } else {
 
-            $_SESSION['msg'] = "<p style = 'color:red;'> Erro ao salvar dados</p>";
+            $_SESSION['msg'] = "<p style = 'color:red;'> Error saving data!</p>";
             header("Location: cad_presenca.php");
 
         }
@@ -39,7 +39,7 @@ $valida_post = filter_input(INPUT_GET, 'user_id', FILTER_UNSAFE_RAW);
 
     } else {
 
-        $_SESSION['msg'] = "<p style = 'color:red;'> <b>Não</b> acesse diretamente por Links, preencha os dados do formulário e <b>Clique</b> no botão cadastrar!</p>";
+        $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
         header("Location: cad_presenca.php");
 
     }

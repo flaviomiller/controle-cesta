@@ -78,11 +78,12 @@ include_once("../../src/conexoes/conexao.php");
             </thead>
             <tbody>
                 <?php
+                $instituicao = $_SESSION['instituicao_id'];
 
                 $SendPesqUser = filter_input(INPUT_POST, 'SendPesqUser', FILTER_SANITIZE_STRING);
                 if ($SendPesqUser) {
                     $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_STRING);
-                    $result_usuario = "SELECT * FROM beneficiarios WHERE nome LIKE '%$nome%'";
+                    $result_usuario = "SELECT * FROM beneficiarios WHERE instituicao_id = $instituicao AND nome LIKE '%$nome%'";
                     $resultado_usuario = mysqli_query($conn, $result_usuario);
                     while ($row_usuario = mysqli_fetch_assoc($resultado_usuario)) {
                         echo "Name: " . $row_usuario['nome'] . "<br>";
@@ -98,7 +99,7 @@ include_once("../../src/conexoes/conexao.php");
 
                 $inicio = ($qtd_result_pg * $pagina) - $qtd_result_pg;
 
-                $result_usuarios = "SELECT * FROM beneficiarios ORDER BY beneficiario_id DESC LIMIT $inicio, $qtd_result_pg";
+                $result_usuarios = "SELECT * FROM beneficiarios WHERE instituicao_id = $instituicao ORDER BY beneficiario_id DESC LIMIT $inicio, $qtd_result_pg";
                 $resultado_usuarios = mysqli_query($conn, $result_usuarios);
 
                 while ($rows_usuario = mysqli_fetch_assoc($resultado_usuarios)) {
@@ -117,7 +118,7 @@ include_once("../../src/conexoes/conexao.php");
         </table>
 
         <?php
-        $result_pg = "SELECT COUNT(beneficiario_id) AS num_result FROM beneficiarios";
+        $result_pg = "SELECT COUNT(beneficiario_id) AS num_result FROM beneficiarios WHERE instituicao_id = $instituicao";
         $resultado_pg = mysqli_query($conn, $result_pg);
         $row_pg = mysqli_fetch_assoc($resultado_pg);
         $quantidade_pg = ceil($row_pg['num_result'] / $qtd_result_pg);

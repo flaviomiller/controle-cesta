@@ -54,14 +54,23 @@ include_once("../../src/conexoes/conexao.php");
         <?php
 
         if (isset($_SESSION['msg'])) {
-            echo $_SESSION['msg'];
+            echo "<div class='alert alert-success' role='alert'>" . $_SESSION['msg'] . "</div>";
             unset($_SESSION['msg']);
+            header("Refresh: 1");
         }
 
         ?>
-        <div class="mb-3" style="margin-top: 10px;">
-            <input type="text" class="form-control" id="pesquisa" placeholder="Search by card code or name">
-        </div>
+        <form class="row g-3">
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-11">
+                    <input type="text" class="form-control" id="pesquisa" placeholder="Search by card code or name">
+                </div>
+                <div class="col-1" style="padding-top: 8px;">
+                    <a href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i></a>
+                </div>
+            </div>
+
+        </form>
 
         <div class="resultado">
 
