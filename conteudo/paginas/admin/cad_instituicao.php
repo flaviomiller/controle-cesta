@@ -3,9 +3,9 @@
 session_start();
 include_once("../../src/conexoes/conexao.php");
 
-$instituicao = $_SESSION['instituicao_id'];
+$usuarioCheck = $_SESSION['usuario_id'];
 
-if (empty($instituicao)) {
+if (empty($usuarioCheck)) {
     header("Location: ../login/login.php");
 }
 
@@ -36,7 +36,7 @@ if (empty($instituicao)) {
                             <a class="nav-link active" aria-current="page" href="menu_adm.php"><i class="fa-solid fa-house-lock"></i> Administrative</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../login/login.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                            <a class="nav-link" href="../login/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                         </li>
                     </ul>
                 </div>
