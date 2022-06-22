@@ -84,6 +84,6 @@ $dompdf->render();
 $output = $dompdf->output();
 //file_put_contents($data."_report_donation.pdf", $output);
 
-$dompdf->stream($data."_report_donation.pdf",array("Attachment"=> false));
+$dompdf->stream($data."_report_donation.pdf",array("Attachment"=> true));
 
 ?>
