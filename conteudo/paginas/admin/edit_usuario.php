@@ -3,6 +3,12 @@
 session_start();
 include_once("../../src/conexoes/conexao.php");
 
+$instituicao = $_SESSION['instituicao_id'];
+
+if (empty($instituicao)) {
+    header("Location: ../login/login.php");
+}
+
 $id = filter_input(INPUT_GET, 'beneficiario_id', FILTER_SANITIZE_NUMBER_INT);
 
 $result_edit_user = "SELECT * FROM beneficiarios WHERE beneficiario_id = '$id'";

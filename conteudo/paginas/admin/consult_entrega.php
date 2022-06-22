@@ -3,6 +3,12 @@
 session_start();
 include_once("../../src/conexoes/conexao.php");
 
+$instituicao = $_SESSION['instituicao_id'];
+
+if (empty($instituicao)) {
+    header("Location: ../login/login.php");
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

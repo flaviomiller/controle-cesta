@@ -5,8 +5,10 @@ include_once ("../../src/conexoes/conexao.php");
 
 $data = filter_input(INPUT_GET, 'dateprint');
 $instituicao = $_SESSION['instituicao_id'];
-//$data = "2022-06-13";
-                 
+
+        if(empty($instituicao)){
+            header("Location: ../login/login.php");
+        }     
         
         $result_entrega = "SELECT
         beneficiarios.beneficiario_id, beneficiarios.instituicao_id,  beneficiarios.nome, beneficiarios.telefone, beneficiarios.email, beneficiarios.qtd_adultos, beneficiarios.qtd_criancas, entrega.criado
