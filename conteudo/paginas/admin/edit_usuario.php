@@ -32,7 +32,7 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/logo_azul.jpg" style="border-radius:20%;" width="30px" height="30px"></a>
+                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount.png" style="border-radius:20%;" width="60px" height="60px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
