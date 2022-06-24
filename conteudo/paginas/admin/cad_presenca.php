@@ -70,7 +70,7 @@ if (empty($instituicao)) {
         <form class="row g-3">
             <div class="row" style="margin-top: 10px;">
                 <div class="col-11">
-                    <input type="text" class="form-control" id="pesquisa" placeholder="Search by card code or name">
+                    <input type="text" class="form-control" id="pesquisa" placeholder="Search by first or last name">
                 </div>
                 <div class="col-1" style="padding-top: 8px;">
                     <a href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i></a>
