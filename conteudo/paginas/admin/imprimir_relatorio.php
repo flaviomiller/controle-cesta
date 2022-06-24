@@ -32,7 +32,7 @@ $html .= '        <link rel="stylesheet" type="text/css" href="../../src/style/r
 $html .= '            <table class="table">';
 $html .= '                <thead>';
 $html .= '                    <tr>';
-$html .= '                        <th><img src="../../src/img/Logo_CareCount_Imp.png" width="80" height="80"></th>';
+$html .= '                        <th><img src="../../src/img/Logo_CareCount_Imp_Lateral.png" width="181px" height="50px"></th>';
 $html .= '                        <th</th>';
 $html .= '                        <th></th>';
 $html .= '                        <th></th>';

@@ -14,19 +14,20 @@ if (empty($instituicao)) {
 <html lang="en">
 
 <head>
+    <link rel="shortcut icon" href="../../src/img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="../../src/style/main.css">
     <link rel="stylesheet" type="text/css" href="../../src/style/personalizado.css">
     <link rel="stylesheet" type="text/css" href="../../src/bootstrap/css/bootstrap.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Donation Report</title>
+    <title>CareCount - Donation Report</title>
 </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount.png" style="border-radius:20%;" width="60px" height="60px"></a>
+                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
