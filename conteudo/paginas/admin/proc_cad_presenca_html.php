@@ -15,6 +15,7 @@ $instituicao = $_SESSION['instituicao_id'];
                 "<thead>" .
                     "<tr>" .
                         "<th>Name</th>" .
+                        "<th>Phone</th>" .
                         "<th style='text-align: center;'>Check</th>" .
                     "</tr>" .
                 "</thead>" .
@@ -23,6 +24,7 @@ $instituicao = $_SESSION['instituicao_id'];
         while($row_user = mysqli_fetch_assoc($resultado_user)){
             echo "<tr>"
                   . "<td>" . $row_user['nome'] . "</td>"
+                  . "<td>" . $row_user['telefone'] . "</td>"
                   . "<td style='text-align: center;'>"
                   . "<a class='link-primary' href='proc_cad_presenca.php?user_id=". $row_user['beneficiario_id'] . 
                       "'> <i class='fa-solid fa-square-plus'></i> </a>
