@@ -32,9 +32,10 @@ $instituicao = $_SESSION['instituicao_id'];
         echo "Qtd Crianças: $qtdCriancas <br>";
         echo "Número de Cartão: $numeroCartao <br>";
 */        
+        $data = date("Y-m-d H:i:s");
 
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-        $var_query = "INSERT INTO beneficiarios (instituicao_id, nome, telefone, cidade, email, qtd_adultos, qtd_criancas, criado) VALUES ('$instituicao', '$nomeCompleto', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', NOW())";
+        $var_query = "INSERT INTO beneficiarios (instituicao_id, nome, telefone, cidade, email, qtd_adultos, qtd_criancas, criado) VALUES ('$instituicao', '$nomeCompleto', '$telefone', '$cidade', '$email', '$qtdAdultos', '$qtdCriancas', '$data')";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -63,7 +64,7 @@ $instituicao = $_SESSION['instituicao_id'];
 
     } else {
 
-        $_SESSION['msg'] = "<p style = 'color:red;'> <b>Não</b> acesse diretamente por Links, preencha os dados do formulário e <b>Clique</b> no botão cadastrar!</p>";
+        $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
         header("Location: cad_presenca.php");
 
     }

@@ -40,7 +40,7 @@ $valida_post = filter_input(INPUT_POST, 'CadInstituicao', FILTER_UNSAFE_RAW);
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if(mysqli_insert_id($conn)){
             
-            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully inserted!</p>";
+            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully!</p>";
             header("Location: menu_adm.php");
 
         } else {

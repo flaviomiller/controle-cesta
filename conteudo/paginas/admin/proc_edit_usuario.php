@@ -29,9 +29,10 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
         echo "Qtd Adultos: $qtdAdultos <br>";
         echo "Qtd Crianças: $qtdCriancas <br>";
         echo "Número de Cartão: $numeroCartao <br>";
-*/                
+*/      
+        $data = date("Y-m-d H:i:s");
 
-        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `modificado` = NOW() WHERE `beneficiarios`.`beneficiario_id` = '$id'";
+        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `modificado` = '$data' WHERE `beneficiarios`.`beneficiario_id` = '$id'";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);

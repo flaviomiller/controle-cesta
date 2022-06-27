@@ -60,22 +60,48 @@ if (empty($instituicao)) {
         </div>
         <?php
 
-        if (isset($_SESSION['msg'])) {
-            echo "<div class='alert alert-success' role='alert'>" . $_SESSION['msg'] . "</div>";
-            unset($_SESSION['msg']);
-            header("Refresh: 1");
-        }
+        $instituicao = $_SESSION['instituicao_id'];
+
+        $data = date('Y-m-d');
+        //$data2 = date('Y-m-d H:i');
+        $result_entrega = "SELECT * FROM `entrega` WHERE `instituicao_id` =  $instituicao AND `criado` LIKE '%$data%'";
+        $resultado_entregas = mysqli_query($conn, $result_entrega);
+        $conta_registro = mysqli_num_rows($resultado_entregas);
 
         ?>
         <form class="row g-3">
             <div class="row" style="margin-top: 10px;">
-                <div class="col-11">
+                <div class="input-group">
                     <input type="text" class="form-control" id="pesquisa" placeholder="Search by first or last name">
+
+                    <?php
+                    if ($conta_registro !== 0) {
+                        echo "<span class='input-group-text'><b>" . $conta_registro . "</b> </span>";
+                    }
+                    ?>
+
                 </div>
+                &nbsp;&nbsp;
                 <div class="col-1" style="padding-top: 8px;">
                     <a href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i></a>
                 </div>
+                    <?php
+
+                    if (isset($_SESSION['msg'])) {
+                        //echo "<div class='alert alert-success' role='alert'>" . $_SESSION['msg'] . "</div>";
+
+                        echo "<div class='col-7' style='padding-top: 8px;'>" . $_SESSION['msg'] . "</div>";
+
+                        unset($_SESSION['msg']);
+                        header("Refresh: 0.5");
+                    } ?>
             </div>
+
+            <!-- <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>-->
 
         </form>
 

@@ -23,10 +23,11 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuarioAdm', FILTER_UNSAFE_RAW);
         echo "Nome: $usuarioAdm <br>";
         echo "E-mail: $emailAdm <br>";
         echo "Password: $senha <br>";
-*/        
+*/       
+        $data = date("Y-m-d H:i:s");
 
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-        $var_query = "INSERT INTO usuario (usuario, email, senha, criado) VALUES ('$usuarioAdm', '$emailAdm', '$senha', NOW())";
+        $var_query = "INSERT INTO usuario (usuario, email, senha, criado) VALUES ('$usuarioAdm', '$emailAdm', '$senha', '$data')";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -36,7 +37,7 @@ $valida_post = filter_input(INPUT_POST, 'CadUsuarioAdm', FILTER_UNSAFE_RAW);
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if(mysqli_insert_id($conn)){
             
-            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully inserted!</p>";
+            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully!</p>";
             header("Location: menu_adm.php");
 
         } else {

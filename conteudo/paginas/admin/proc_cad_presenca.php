@@ -13,9 +13,9 @@ $instituicao = $_SESSION['instituicao_id'];
 
 
     if ($valida_post) {
-
+        $data = date("Y-m-d H:i:s");
         //Cria a query e atribui a variável que será utilizada para realizar a inserção no BD
-       $var_query = "INSERT INTO entrega (beneficiario_id, instituicao_id, criado) VALUES ('$valida_post', $instituicao, NOW())";
+        $var_query = "INSERT INTO entrega (beneficiario_id, instituicao_id, criado) VALUES ('$valida_post', '$instituicao', '$data')";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -25,7 +25,7 @@ $instituicao = $_SESSION['instituicao_id'];
         Caso contrário retorna a página de cadastro informando que o registro não foi inserido*/
         if((mysqli_affected_rows($conn)) > 0) {
             
-            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully inserted!</p>";
+            $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully!</p>";
             header("Location: cad_presenca.php");
 
         } else {
