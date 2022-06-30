@@ -26,7 +26,7 @@ if (empty($usuarioCheck)) {
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount.png" style="border-radius:20%;" width="60px" height="60px"></a>
+                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
@@ -69,6 +69,7 @@ if (empty($usuarioCheck)) {
             </div>
             <div class="col-12">
                 <button type="submit" name="CadUsuarioAdm" value="Register" class="btn btn-primary">Register</button>
+                <a href="menu_adm.php" value="Cancel" class="btn btn-danger">Cancel</a>
             </div>
 
         </form>
