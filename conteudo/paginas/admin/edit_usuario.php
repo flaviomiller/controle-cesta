@@ -92,6 +92,7 @@ $row_edit_user = mysqli_fetch_assoc($resultado_edit_user);
 
             <div class="col-12">
                 <button type="submit" name="AltUsuario" value="Save" class="btn btn-primary">Edit</button>
+                <a href="consult_usuarios.php" value="Cancel" class="btn btn-danger">Cancel</a>
             </div>
 
         </form>
