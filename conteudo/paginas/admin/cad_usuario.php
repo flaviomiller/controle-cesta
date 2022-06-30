@@ -91,6 +91,7 @@ if (empty($instituicao)) {
 
             <div class="col-12">
                 <button type="submit" name="CadUsuario" value="Register" class="btn btn-primary">Register</button>
+                <a href="cad_presenca.php" value="Cancel" class="btn btn-danger">Cancel</a>
             </div>
 
         </form>
