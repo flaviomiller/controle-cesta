@@ -19,20 +19,46 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $qtdAdultos = filter_input(INPUT_POST, 'qtd_adultos', FILTER_SANITIZE_NUMBER_INT);
         $qtdCriancas = filter_input(INPUT_POST, 'qtd_criancas', FILTER_SANITIZE_NUMBER_INT);
+        $oracao = filter_input(INPUT_POST, 'oracao', FILTER_UNSAFE_RAW);
+        $estudoBiblico = filter_input(INPUT_POST, 'estudo_biblico', FILTER_UNSAFE_RAW);
+        $familia = filter_input(INPUT_POST, 'familia', FILTER_UNSAFE_RAW);
+        $saude = filter_input(INPUT_POST, 'saude', FILTER_UNSAFE_RAW);
+        $financas = filter_input(INPUT_POST, 'financas', FILTER_UNSAFE_RAW);
+        $educacaoCriancas = filter_input(INPUT_POST, 'educacao_criancas', FILTER_UNSAFE_RAW);
+        $temperaturaEspiritual = filter_input(INPUT_POST, 'temperatura_espiritual', FILTER_UNSAFE_RAW);
+        $notas = filter_input(INPUT_POST, 'notas', FILTER_UNSAFE_RAW);
+
+
+        if($oracao == "on"){
+            $oracao = "checked";
+        }
+
+        if($estudoBiblico == "on"){
+            $estudoBiblico = "checked";
+        }
+    
+        if($familia == "on"){
+            $familia = "checked";
+        }
+    
+        if($saude == "on"){
+            $saude = "checked";
+        }
+    
+        if($financas == "on"){
+            $financas = "checked";
+        }
+    
+        if($educacaoCriancas == "on"){
+            $educacaoCriancas = "checked";
+        }
 
 /*        
-        echo "Nome: $nome <br>";
-        echo "Sobre Nome: $snome <br>";
-        echo "Telefone: $telefone <br>";
-        echo "Cidade: $cidade <br>";
-        echo "E-Mail: $email <br>";
-        echo "Qtd Adultos: $qtdAdultos <br>";
-        echo "Qtd Crianças: $qtdCriancas <br>";
-        echo "Número de Cartão: $numeroCartao <br>";
+        echo "Nome: $nome <br> "Sobre Nome: $snome <br> Telefone: $telefone <br> Cidade: $cidade <br> E-Mail: $email <br> Qtd Adultos: $qtdAdultos <br> Qtd Crianças: $qtdCriancas <br> Número de Cartão: $numeroCartao <br>";
 */      
         $data = date("Y-m-d H:i:s");
 
-        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `modificado` = '$data' WHERE `beneficiarios`.`beneficiario_id` = '$id'";
+        $var_query = "UPDATE `beneficiarios` SET `nome` = '$nome', `telefone` = '$telefone', `cidade` = '$cidade', `email` = '$email', `qtd_adultos` = '$qtdAdultos', `qtd_criancas` = '$qtdCriancas', `oracao` = '$oracao', `estudo_biblico` = '$estudoBiblico', `familia` = '$familia', `saude` = '$saude', `financas` = '$financas', `educacao_criancas` = '$educacaoCriancas', `temperatura_espiritual` = '$temperaturaEspiritual', `notas` = '$notas', `modificado` = '$data' WHERE `beneficiarios`.`beneficiario_id` = '$id'";
 
         //Executa a query criada na variavel anterior
         $insert_query = mysqli_query($conn, $var_query);
@@ -52,5 +78,3 @@ $valida_post = filter_input(INPUT_POST, 'AltUsuario', FILTER_UNSAFE_RAW);
         header("Location: consult_usuarios.php");
 
     }
-
-?>

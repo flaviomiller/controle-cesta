@@ -89,6 +89,52 @@ if (empty($instituicao)) {
                 <input type="text" class="form-control" name="qtd_criancas" placeholder="How many children" aria-label="How many children">
             </div>
 
+            <div class="col-md-12">
+                <div>
+                    <label class="form-label">Assessments</label>
+                </div>
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="oracao" id="oracao" >
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Prayer</label>
+                </div>
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="estudo_biblico" id="estudo_biblico">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Bible&nbsp;Study</label>
+                </div>
+
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="familia" id="familia">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Family</label>
+                </div>
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="saude" id="saude">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Health</label>
+                </div>
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="financas" id="financas">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Finances</label>
+                </div>
+                <div class="form-check-inline form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" name="educacao_criancas" id="educacao_criancas">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Kids&nbsp;education </label>
+                </div>
+
+            </div>
+
+            <div class="col-md-12">
+                <label for="customRange1" class="form-label">Spiritual Temperature</label>
+                <div class="simbol" style="display:flex;">
+                    <div style="width:50%; text-align: left; background-image: linear-gradient(to left, rgba(255,0,0,0), rgb(47,85,127,1)); border-radius: 10px; color: white; max-height: 5px;">&nbsp;</div>
+                    <div style="width:50%; text-align: right;background-image: linear-gradient(to right, rgba(255,0,0,0), rgb(220,53,69,1)); border-radius: 10px; color: white; max-height: 5px;">&nbsp;</div>
+                </div>
+                <input type="range" class="form-range" min="1" max="5" name="temperatura_espiritual" id="temperatura_espiritual">
+            </div>
+
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" name="notas" id="notas"></textarea>
+                <label for="floatingTextarea">Notes</label>
+            </div>
+
             <div class="col-12">
                 <button type="submit" name="CadUsuario" value="Register" class="btn btn-primary">Register</button>
                 <a href="cad_presenca.php" value="Cancel" class="btn btn-danger">Cancel</a>
@@ -101,6 +147,9 @@ if (empty($instituicao)) {
         <script src="../../src/js/scripts.js"></script>
         <script src="../../src/bootstrap/js/bootstrap.min.js"></script>
     </main>
+    <footer class="container">
+        <br><br>
+    </footer>
 </body>
 
 </html>
