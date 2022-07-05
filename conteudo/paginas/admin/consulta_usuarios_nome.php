@@ -104,7 +104,8 @@ if (empty($instituicao)) {
                     . "<td>" . $rows_usuario['email'] . "</td>"
                     . "<td>" . $rows_usuario['qtd_adultos'] . "</td>"
                     . "<td>" . $rows_usuario['qtd_criancas'] . "</td>"
-                    . "<td><a href='edit_usuario.php?beneficiario_id=" . $rows_usuario['beneficiario_id'] . "'/><i class='fa-solid fa-file-pen'></i></td>";
+                    . "<td><a href='edit_usuario.php?beneficiario_id=" . $rows_usuario['beneficiario_id'] . "'/><i class='fa-solid fa-file-pen'></i></td>"
+                    . "<td><a href='proc_apaga_usuario.php?id=" . $rows_usuario['beneficiario_id'] . "' onclick=\"return confirm('Are you sure you want to delete this record?'); return false;\"><i class='fa-solid fa-trash-can'></i></td>";
                 echo "</tr>";
             }
         }
