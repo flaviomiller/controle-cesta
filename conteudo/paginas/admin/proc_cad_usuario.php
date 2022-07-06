@@ -75,12 +75,10 @@ $instituicao = $_SESSION['instituicao_id'];
         if(mysqli_insert_id($conn)){
 
             $retornaId = mysqli_insert_id($conn);
-            
-            header("Location: proc_cad_presenca.php?user_id=$retornaId");
 
             $_SESSION['msg'] = "<p style = 'color:green;'> Registro inserido com sucesso!!</p>";
-            header("Location: cad_presenca.php");
 
+            header("Location: proc_cad_presenca.php?user_id=$retornaId");
 
         } else {
 
@@ -88,8 +86,6 @@ $instituicao = $_SESSION['instituicao_id'];
             header("Location: cad_usuario.php");
 
         }
-
-        
 
     } else {
 
