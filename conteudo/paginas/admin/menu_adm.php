@@ -21,7 +21,7 @@ include_once("../../src/conexoes/conexao.php");
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="../login/login.php"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
+                <a class="nav-link" href="../login/acesso"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
@@ -29,10 +29,10 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="menu_adm.php"><i class="fa-solid fa-house-lock"></i> Administrative</a>
+                                <a class="nav-link active" aria-current="page" href="administracao"><i class="fa-solid fa-house-lock"></i> Administrative</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../login/login.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                                <a class="nav-link" href="../login/acesso"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
                             </li>
                         </ul>
                 </div>
@@ -49,8 +49,8 @@ include_once("../../src/conexoes/conexao.php");
 
         ?>
         <div class="list-group">
-            <a href="cad_instituicao.php" class="list-group-item list-group-item-action">Register new church</a>
-            <a href="cad_usuario_adm.php" class="list-group-item list-group-item-action">Register new admin user</a>
+            <a href="cadastro-instituicao" class="list-group-item list-group-item-action">Register new church</a>
+            <a href="cadastro-usuario-adm" class="list-group-item list-group-item-action">Register new admin user</a>
         </div>
 
         <script src="https://kit.fontawesome.com/cd2d859a93.js" crossorigin="anonymous"></script>

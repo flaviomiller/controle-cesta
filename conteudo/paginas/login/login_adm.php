@@ -21,7 +21,7 @@ include_once("../../src/conexoes/conexao.php");
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="login.php"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
+                <a class="nav-link" href="acesso"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
@@ -29,7 +29,7 @@ include_once("../../src/conexoes/conexao.php");
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="login.php"><i class="fa-solid fa-square-caret-left"></i> Back</a>
+                                <a class="nav-link active" aria-current="page" href="acesso"><i class="fa-solid fa-square-caret-left"></i> Back</a>
                             </li>
                         </ul>
                 </div>

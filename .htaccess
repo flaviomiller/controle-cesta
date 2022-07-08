@@ -1,0 +1,23 @@
+Options -Indexes
+
+RewriteEngine on
+
+RewriteRule ^conteudo/paginas/login/acesso/?$ ./conteudo/paginas/login/login.php [NC]
+
+RewriteRule ^conteudo/paginas/login/acesso-adm/?$ ./conteudo/paginas/login/login_adm.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/administracao/?$ ./conteudo/paginas/admin/menu_adm.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/cadastro-instituicao/?$ ./conteudo/paginas/admin/cad_instituicao.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/cadastro-usuario-adm/?$ ./conteudo/paginas/admin/cad_usuario_adm.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/presenca/?$ ./conteudo/paginas/admin/cad_presenca.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/cadastro-usuario/?$ ./conteudo/paginas/admin/cad_usuario.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/consulta-usuarios/?$ ./conteudo/paginas/admin/consult_usuarios.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/consulta-nome/?$ ./conteudo/paginas/admin/consulta_usuarios_nome.php [NC]
+
+RewriteRule ^conteudo/paginas/admin/consulta-entrega/?$ ./conteudo/paginas/admin/consult_entrega.php [NC]

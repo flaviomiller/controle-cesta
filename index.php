@@ -2,12 +2,13 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Index</title>
     </head>
     <body>
         <?php
-            //header("Location: conteudo/paginas/page-login.php");
-            header("Location: conteudo/paginas/admin/cad_presenca.php");
+
+            header("Location: conteudo/paginas/login/acesso");
+            //header("Location: conteudo/paginas/admin/cad_presenca.php");
         ?>
         <div class="container">
             <table>

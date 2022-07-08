@@ -18,17 +18,17 @@ if($btnLogin){
             if(password_verify($password, $row_instituicao['senha'])){
                 $_SESSION['instituicao_id'] = $row_instituicao['instituicao_id'];
 		        $_SESSION['instituicao'] = $row_instituicao['nome_instituicao'];
-		        header("Location: ../admin/cad_presenca.php");
+		        header("Location: ../admin/presenca");
             } else {
                 $_SESSION['msg'] = "Incorrect password";
-                header("Location: login.php");
+                header("Location: acesso");
             }    
         }
     } else {    
         $_SESSION['msg'] = "Incorrect password";
-        header("Location: login.php");
+        header("Location: acesso");
     }
 }else{
     $_SESSION['msg'] = "Page not found";
-    header("Location: login.php");
+    header("Location: acesso");
 }

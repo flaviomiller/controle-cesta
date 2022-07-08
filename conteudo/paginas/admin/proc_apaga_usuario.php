@@ -20,12 +20,12 @@ if (!empty($id)) {
     $resultado_usuario = mysqli_query($conn, $delete_query);
     if (mysqli_affected_rows($conn)) {
         $_SESSION['msg'] = "<p style = 'color:green;'>User deleted successfully!</p>";
-        header("Location: consult_usuarios.php");
+        header("Location: consulta-usuarios");
     } else {
         $_SESSION['msg'] = "<p style = 'color:red;'>User has not been deleted!</p>";
-        header("Location: consult_usuarios.php");
+        header("Location: consulta-usuarios");
     }
 } else {
     $_SESSION['msg'] = "<p style = 'color:red;'>User has not been deleted!</p>";
-    header("Location: consult_usuarios.php");
+    header("Location: consulta-usuarios");
 }

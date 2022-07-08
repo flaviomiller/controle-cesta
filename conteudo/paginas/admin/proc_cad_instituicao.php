@@ -41,12 +41,12 @@ $valida_post = filter_input(INPUT_POST, 'CadInstituicao', FILTER_UNSAFE_RAW);
         if(mysqli_insert_id($conn)){
             
             $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully!</p>";
-            header("Location: menu_adm.php");
+            header("Location: administracao");
 
         } else {
 
             $_SESSION['msg'] = "<p style = 'color:red;'> Error saving data!</p>";
-            header("Location: cad_instituicao.php");
+            header("Location: administracao");
 
         }
 
@@ -55,7 +55,7 @@ $valida_post = filter_input(INPUT_POST, 'CadInstituicao', FILTER_UNSAFE_RAW);
     } else {
 
         $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
-        header("Location: cad_instituicao.php");
+        header("Location: administracao");
 
     }
 

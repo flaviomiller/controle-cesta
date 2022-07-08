@@ -17,17 +17,17 @@ if($btnLogin){
             $row_usuarioAdm = mysqli_fetch_assoc($resultado_usuarioAdm);
             if(password_verify($password, $row_usuarioAdm['senha'])){
                 $_SESSION['usuario_id'] = $row_usuarioAdm['usuario_id'];
-		        header("Location: ../admin/menu_adm.php");
+		        header("Location: ../admin/administracao");
             } else {
                 $_SESSION['msg'] = "Incorrect password";
-                header("Location: login_adm.php");
+                header("Location: acesso-adm");
             }    
         }
     } else {    
         $_SESSION['msg'] = "Incorrect password";
-        header("Location: login_adm.php");
+        header("Location: acesso-adm");
     }
 }else{
     $_SESSION['msg'] = "Page not found";
-    header("Location: login_adm.php");
+    header("Location: acesso-adm");
 }

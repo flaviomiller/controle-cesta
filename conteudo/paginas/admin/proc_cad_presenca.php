@@ -26,12 +26,12 @@ $instituicao = $_SESSION['instituicao_id'];
         if((mysqli_affected_rows($conn)) > 0) {
             
             $_SESSION['msg'] = "<p style = 'color:green;'> Registration successfully!</p>";
-            header("Location: cad_presenca.php");
+            header("Location: presenca");
 
         } else {
 
             $_SESSION['msg'] = "<p style = 'color:red;'> Error saving data!</p>";
-            header("Location: cad_presenca.php");
+            header("Location: presenca");
 
         }
 
@@ -40,7 +40,7 @@ $instituicao = $_SESSION['instituicao_id'];
     } else {
 
         $_SESSION['msg'] = "<p style = 'color:red;'> Error accessing page!</p>";
-        header("Location: cad_presenca.php");
+        header("Location: presenca");
 
     }
 

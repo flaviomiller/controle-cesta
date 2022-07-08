@@ -27,7 +27,7 @@ if (empty($instituicao)) {
     <header>
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="nav-link" href="cad_presenca.php"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
+                <a class="nav-link" href="presenca"><img src="../../src/img/Logo_CareCount_Fonte_Lateral.png" width="181px" height="50px"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa-solid fa-align-justify"></i>
                 </button>
@@ -35,16 +35,16 @@ if (empty($instituicao)) {
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="../admin/cad_presenca.php"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
+                                <a class="nav-link active" aria-current="page" href="../admin/presenca"><i class="fa-solid fa-clipboard-check"></i> Presence check</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/cad_usuario.php"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
+                                <a class="nav-link" href="../admin/cadastro-usuario"><i class="fa-solid fa-file-circle-plus"></i> Registration</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_usuarios.php"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
+                                <a class="nav-link" href="../admin/consulta-usuarios"><i class="fa-solid fa-file-lines"></i> Beneficiary’s report</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="../admin/consult_entrega.php"><i class="fa-solid fa-box"></i> Donation Report</a>
+                                <a class="nav-link" href="../admin/consulta-entrega"><i class="fa-solid fa-box"></i> Donation Report</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../login/sair.php"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
@@ -60,7 +60,7 @@ if (empty($instituicao)) {
             <p style="padding-top: 10px; color: rgb(47,85,127); font-weight: bold; font-size: 18px;"><?php echo $_SESSION['instituicao'] ?></p>
         </div>
         <div style="margin: 10px;"><i class="fa-solid fa-magnifying-glass">
-            </i>&nbsp; <a href="consulta_usuarios_nome.php"> Search by beneficiay's name</a>
+            </i>&nbsp; <a href="consulta-nome"> Search by beneficiay's name</a>
         </div>
         <?php
 
